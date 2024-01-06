@@ -5,12 +5,18 @@
 
 3. ./bootstrap.sh  --with-libraries=graph  这里可能也可以是all?
  
-5. ./b2 toolset=emscripten  link=static
+4. ./b2 toolset=emscripten  link=static
 
-7. mkdir build
+5. mkdir build
 
-9. cd buld
+6. cd buld
  
-11. emcmake cmake ..
+7. emcmake cmake .. -DBOOST_ROOT=/home/rock/project/boost_1_84_0
 
+8 .make -j4
+
+其中。
    
+uses: lovasoa/setup-emscripten@master
+with:
+  emscripten-version: '3.1.52'

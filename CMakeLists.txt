@@ -27,7 +27,7 @@ endif()
 # find_package(Boost COMPONENTS graph)
 
 # 设置Boost库的根目录
-set(BOOST_ROOT "/home/rock/project/boost_1_84_0")
+#set(BOOST_ROOT "/home/rock/project/boost_1_84_0")
 set(Boost_INCLUDE_DIR "${BOOST_ROOT}")
 set(Boost_LIBRARY_DIR "${BOOST_ROOT}/stage/lib")
 
