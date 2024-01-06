@@ -19,12 +19,14 @@ jobs:
         ./emsdk install latest
         ./emsdk activate latest
         echo "EMSDK_PATH=$(pwd)" >> $GITHUB_ENV
-        source ./emsdk_env.sh
+        echo "EMSDK=$(pwd)" >> $GITHUB_ENV
+        echo "EM_CONFIG=${EMSDK}/.emscripten" >> $GITHUB_ENV
+        echo "PATH=${EMSDK}:${EMSDK}/upstream/emscripten:${EMSDK}/node/14.15.5_64bit/bin:$PATH" >> $GITHUB_ENV
         cd ../    
     - name: Check emcc command
       run: |
        emcc --version || (echo "emcc not found" && exit 1)
-       
+
     - name: Download Boost 1.84.0
       run: wget https://archives.boost.io/release/1.84.0/source/boost_1_84_0.tar.gz
       
