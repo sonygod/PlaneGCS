@@ -14,7 +14,7 @@ jobs:
     - name: Install Emscripten
       uses: lovasoa/setup-emscripten@master
       with:
-        emscripten-version: '3.1.52'
+        emscripten-version: '3.1.51'
 
     - name: Download Boost 1.84.0
       run: wget https://archives.boost.io/release/1.84.0/source/boost_1_84_0.tar.gz
