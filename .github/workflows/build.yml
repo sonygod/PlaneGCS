@@ -21,7 +21,10 @@ jobs:
         echo "EMSDK_PATH=$(pwd)" >> $GITHUB_ENV
         source ./emsdk_env.sh
         cd ../    
-
+    - name: Check emcc command
+      run: |
+       emcc --version || (echo "emcc not found" && exit 1)
+       
     - name: Download Boost 1.84.0
       run: wget https://archives.boost.io/release/1.84.0/source/boost_1_84_0.tar.gz
       
