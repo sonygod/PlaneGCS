@@ -11,10 +11,16 @@ jobs:
       with:
         fetch-depth: 0
         
-    - name: Install Emscripten
-      uses: lovasoa/setup-emscripten@master
-      with:
-        emscripten-version: '3.1.51'
+    - name: Install latest emscripten and set environment variables
+        run: |
+          mkdir -p emsdk
+          git clone https://github.com/emscripten-core/emsdk.git ./emsdk || echo "Clone failed"
+          cd ./emsdk
+          ./emsdk install latest
+          ./emsdk activate latest
+          echo "EMSDK_PATH=$(pwd)" >> $GITHUB_ENV
+          source ./emsdk_env.sh
+          cd ../
 
     - name: Download Boost 1.84.0
       run: wget https://archives.boost.io/release/1.84.0/source/boost_1_84_0.tar.gz
