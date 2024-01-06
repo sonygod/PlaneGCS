@@ -18,10 +18,8 @@ jobs:
         cd ./emsdk
         ./emsdk install latest
         ./emsdk activate latest
-        echo "EMSDK_PATH=$(pwd)" >> $GITHUB_ENV
         echo "EMSDK=$(pwd)" >> $GITHUB_ENV
-        echo "EM_CONFIG=${EMSDK}/.emscripten" >> $GITHUB_ENV
-        echo "PATH=${EMSDK}:${EMSDK}/upstream/emscripten:${EMSDK}/node/14.15.5_64bit/bin:$PATH" >> $GITHUB_ENV
+        echo "PATH=$(pwd)/upstream/emscripten:$(pwd)/node/14.15.5_64bit/bin:$PATH" >> $GITHUB_ENV
         cd ../    
     - name: Check emcc command
       run: |
